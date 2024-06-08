@@ -4,29 +4,34 @@ import MainLayout from "./MainLayout";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import Matches from "./matches";
+import BettingPage from "./BettingPage";
 
 const routes: RouteObject[] = [
-    {
-        element: <MainLayout />,
-        children: [
-            {
-                path: "/",
-                element: <LandingPage />
-            },
-            {
-                path: "/signin",
-                element: <SignIn />
-            },
-            {
-                path: "/signup",
-                element: <SignUp />
-            },
-            {
-                path: "/matches",
-                element: <Matches />
-            },
-        ]
-    }
-]
+  {
+    element: <MainLayout />,
+    children: [
+      {
+        path: "/",
+        element: <LandingPage />,
+      },
+      {
+        path: "/signin",
+        element: <SignIn />,
+      },
+      {
+        path: "/signup",
+        element: <SignUp />,
+      },
+      {
+        path: "/matches",
+        element: <Matches />,
+      },
+      {
+        path: "/bettingpage",
+        element: <BettingPage />,
+      },
+    ],
+  },
+];
 
-export default routes
+export default routes;
