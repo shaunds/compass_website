@@ -6,6 +6,7 @@ import {
   Typography,
   Button,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 interface MatchPopupProps {
   open: boolean;
@@ -14,12 +15,8 @@ interface MatchPopupProps {
   team2: string;
 }
 
-const MatchPopup: React.FC<MatchPopupProps> = ({
-  open,
-  onClose,
-  team1,
-  team2,
-}) => {
+const Mpopup: React.FC<MatchPopupProps> = ({ open, onClose, team1, team2 }) => {
+  const nav = useNavigate();
   return (
     <Dialog open={open} onClose={onClose}>
       <DialogTitle>Match Details</DialogTitle>
@@ -28,11 +25,11 @@ const MatchPopup: React.FC<MatchPopupProps> = ({
           {team1} vs {team2}
         </Typography>
         {/* Add more details */}
-        <Button>Buy Ticket</Button>
-        <Button>Bet on a Team</Button>
+        <Button onClick={() => nav("/paymentpage")}>Buy Ticket</Button>
+        <Button onClick={() => nav("/bettingpage")}>Bet on a Team</Button>
       </DialogContent>
     </Dialog>
   );
 };
 
-export default MatchPopup;
+export default Mpopup;

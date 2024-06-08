@@ -8,16 +8,13 @@ const HomePage: React.FC = () => {
     <Container>
       <Grid container spacing={2}>
         <Grid item xs={12}>
-          <h1>Esports Organizing Company</h1>
-        </Grid>
-        <Grid item xs={6}>
-          <Team name="Team A" />
-        </Grid>
-        <Grid item xs={6}>
-          <Team name="Team B" />
+          <h1>Upcoming matches</h1>
         </Grid>
         <Grid item xs={12}>
-          <Match team1="Team A" team2="Team B" />
+          <Match team1="BLUE" team2="RED" />
+        </Grid>
+        <Grid item xs={12}>
+          <Match team1="PURPLE" team2="GREEN" />
         </Grid>
         {/* Add more matches and teams */}
       </Grid>
