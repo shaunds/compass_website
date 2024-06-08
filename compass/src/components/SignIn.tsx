@@ -12,6 +12,18 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import {
+  getAuth,
+  GoogleAuthProvider,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+} from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { doc, getDoc } from "firebase/firestore";
+import { auth, db } from "./firebase";
+import { useEffect } from "react";
+import { FormHelperText } from "@mui/material";
 
 function Copyright(props: any) {
   return (
@@ -35,14 +47,54 @@ function Copyright(props: any) {
 const defaultTheme = createTheme();
 
 export default function SignIn() {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loginError, setLoginError] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
+  const [userSignedIn, setUserSignedIn] = useState(false);
+
+  //   Function to create user document if not found in firestore
+  const createUserDocument = async (userId: any) => {
+    //check if user exists in firestore
+    try {
+      const ref = doc(db, "userDetails", userId);
+      const userDoc = await getDoc(ref);
+    } catch (error) {
+      // if ((error as FirebaseError).code === "") {
+
+      // }
+      console.log(error);
+    }
   };
+
+  // Function to Signin with email and password
+  const signIn = async () => {
+    console.log(auth.currentUser?.uid);
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+    } catch (error) {
+      // console.error(error);
+      setLoginError(true);
+    }
+  };
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUserSignedIn(true);
+        console.log("User is signed in");
+        createUserDocument(auth.currentUser?.uid);
+        navigate("/");
+        // getUserdetails(auth.currentUser?.uid);
+      } else {
+        setUserSignedIn(false);
+        console.log("User is not signed in");
+      }
+    });
+    return () => unsubscribe();
+  }, []);
+
+  const navigate = useNavigate();
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -64,7 +116,7 @@ export default function SignIn() {
           </Typography>
           <Box
             component="form"
-            onSubmit={handleSubmit}
+            // onSubmit={handleSubmit}
             noValidate
             sx={{ mt: 1 }}
           >
@@ -77,6 +129,8 @@ export default function SignIn() {
               name="email"
               autoComplete="email"
               autoFocus
+              error={loginError}
+              onChange={(e: any) => setEmail(e.target.value)}
             />
             <TextField
               margin="normal"
@@ -87,16 +141,28 @@ export default function SignIn() {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={(e) => setPassword(e.target.value)}
             />
             <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
+              control={
+                <Checkbox
+                  value="remember"
+                  color="primary"
+                  checked={rememberMe}
+                  onChange={(e) => setRememberMe(e.target.checked)}
+                />
+              }
               label="Remember me"
             />
+            <FormHelperText sx={{ color: "red" }}>
+              {loginError ? "Invaild Email or Password" : ""}
+            </FormHelperText>
             <Button
-              type="submit"
+              //   type="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              onClick={signIn}
             >
               Sign In
             </Button>
@@ -107,7 +173,7 @@ export default function SignIn() {
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="/signup" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>

@@ -11,6 +11,10 @@ import MenuItem from "@mui/material/MenuItem";
 import Drawer from "@mui/material/Drawer";
 import MenuIcon from "@mui/icons-material/Menu";
 import ToggleColorMode from "./ToggleColorMode";
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { auth } from "./firebase";
+import { signOut } from "firebase/auth";
 
 const logoStyle = {
   width: "140px",
@@ -23,7 +27,7 @@ interface AppAppBarProps {
   toggleColorMode: () => void;
 }
 
-function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
+function AppAppBar() {
   const [open, setOpen] = React.useState(false);
 
   const toggleDrawer = (newOpen: boolean) => () => {
@@ -43,6 +47,28 @@ function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
       setOpen(false);
     }
   };
+
+  const [user, setUser] = useState(false);
+
+  // handle logout
+  async function handleLogout() {
+    signOut(auth);
+    navigate("/");
+    setUser(false);
+    console.log(user);
+  }
+
+  useEffect(() => {
+    const userID = auth.currentUser?.uid;
+    if (userID) {
+      console.log("User is signed in");
+      setUser(true);
+    } else {
+      console.log("User is not signed in");
+    }
+  }),
+    [];
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -88,9 +114,7 @@ function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
               }}
             >
               <img
-                src={
-                  "https://assets-global.website-files.com/61ed56ae9da9fd7e0ef0a967/61f12e6faf73568658154dae_SitemarkDefault.svg"
-                }
+                src="https://firebasestorage.googleapis.com/v0/b/bugsharp-29467.appspot.com/o/Compass_Logo.svg?alt=media&token=de8d3d60-16bd-41a0-ab94-7a8ebd948e94"
                 style={logoStyle}
                 alt="logo of sitemark"
               />
@@ -111,61 +135,58 @@ function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
                     Testimonials
                   </Typography>
                 </MenuItem>
-                <MenuItem
-                  onClick={() => scrollToSection("highlights")}
-                  sx={{ py: "6px", px: "12px" }}
-                >
-                  <Typography variant="body2" color="text.primary">
-                    Highlights
-                  </Typography>
-                </MenuItem>
-                <MenuItem
-                  onClick={() => scrollToSection("pricing")}
-                  sx={{ py: "6px", px: "12px" }}
-                >
-                  <Typography variant="body2" color="text.primary">
-                    Pricing
-                  </Typography>
-                </MenuItem>
-                <MenuItem
-                  onClick={() => scrollToSection("faq")}
-                  sx={{ py: "6px", px: "12px" }}
-                >
-                  <Typography variant="body2" color="text.primary">
-                    FAQ
-                  </Typography>
-                </MenuItem>
               </Box>
             </Box>
-            <Box
-              sx={{
-                display: { xs: "none", md: "flex" },
-                gap: 0.5,
-                alignItems: "center",
-              }}
-            >
-              <ToggleColorMode mode={mode} toggleColorMode={toggleColorMode} />
-              <Button
-                color="primary"
-                variant="text"
-                size="small"
-                component="a"
-                href="/material-ui/getting-started/templates/sign-in/"
-                target="_blank"
+            {user ? (
+              <Box
+                sx={{
+                  display: { xs: "none", md: "flex" },
+                  gap: 0.5,
+                  alignItems: "center",
+                }}
               >
-                Sign in
-              </Button>
-              <Button
-                color="primary"
-                variant="contained"
-                size="small"
-                component="a"
-                href="/material-ui/getting-started/templates/sign-up/"
-                target="_blank"
+                <Button
+                  color="primary"
+                  variant="contained"
+                  size="small"
+                  component="a"
+                  target="_blank"
+                  onClick={() => handleLogout()}
+                >
+                  Sign Out
+                </Button>
+              </Box>
+            ) : (
+              <Box
+                sx={{
+                  display: { xs: "none", md: "flex" },
+                  gap: 0.5,
+                  alignItems: "center",
+                }}
               >
-                Sign up
-              </Button>
-            </Box>
+                <Button
+                  color="primary"
+                  variant="text"
+                  size="small"
+                  component="a"
+                  target="_blank"
+                  onClick={() => navigate("/signin")}
+                >
+                  Sign in
+                </Button>
+                <Button
+                  color="primary"
+                  variant="contained"
+                  size="small"
+                  component="a"
+                  target="_blank"
+                  onClick={() => navigate("/signup")}
+                >
+                  Sign up
+                </Button>
+              </Box>
+            )}
+
             <Box sx={{ display: { sm: "", md: "none" } }}>
               <Button
                 variant="text"
@@ -185,33 +206,11 @@ function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
                     flexGrow: 1,
                   }}
                 >
-                  <Box
-                    sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "end",
-                      flexGrow: 1,
-                    }}
-                  >
-                    <ToggleColorMode
-                      mode={mode}
-                      toggleColorMode={toggleColorMode}
-                    />
-                  </Box>
                   <MenuItem onClick={() => scrollToSection("features")}>
                     Features
                   </MenuItem>
                   <MenuItem onClick={() => scrollToSection("testimonials")}>
                     Testimonials
-                  </MenuItem>
-                  <MenuItem onClick={() => scrollToSection("highlights")}>
-                    Highlights
-                  </MenuItem>
-                  <MenuItem onClick={() => scrollToSection("pricing")}>
-                    Pricing
-                  </MenuItem>
-                  <MenuItem onClick={() => scrollToSection("faq")}>
-                    FAQ
                   </MenuItem>
                   <Divider />
                   <MenuItem>
@@ -249,3 +248,6 @@ function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
 }
 
 export default AppAppBar;
+function useAuth(): { logout: any } {
+  throw new Error("Function not implemented.");
+}

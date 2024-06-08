@@ -10,11 +10,8 @@ import AutoAwesomeRoundedIcon from "@mui/icons-material/AutoAwesomeRounded";
 import AppAppBar from "./components/AppAppBar.tsx";
 import Hero from "./components/Hero.tsx";
 import LogoCollection from "./components/LogoCollection.tsx";
-import Highlights from "./components/Highlights.tsx";
-import Pricing from "./components/Pricing.tsx";
 import Features from "./components/Features.tsx";
 import Testimonials from "./components/Testimonials.tsx";
-import FAQ from "./components/FAQ.tsx";
 import Footer from "./components/Footer.tsx";
 import getLPTheme from "./getLPTheme.tsx";
 
@@ -62,7 +59,7 @@ function ToggleCustomTheme({
 }
 
 export default function LandingPage() {
-  const [mode, setMode] = React.useState<PaletteMode>("light");
+  const [mode, setMode] = React.useState<PaletteMode>("dark");
   const [showCustomTheme, setShowCustomTheme] = React.useState(true);
   const LPtheme = createTheme(getLPTheme(mode));
   const defaultTheme = createTheme({ palette: { mode } });
@@ -78,19 +75,13 @@ export default function LandingPage() {
   return (
     <ThemeProvider theme={showCustomTheme ? LPtheme : defaultTheme}>
       <CssBaseline />
-      <AppAppBar mode={mode} toggleColorMode={toggleColorMode} />
+      <AppAppBar />
       <Hero />
       <Box sx={{ bgcolor: "background.default" }}>
         <LogoCollection />
         <Features />
         <Divider />
         <Testimonials />
-        <Divider />
-        <Highlights />
-        <Divider />
-        <Pricing />
-        <Divider />
-        <FAQ />
         <Divider />
         <Footer />
       </Box>
