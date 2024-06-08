@@ -11,6 +11,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Drawer from "@mui/material/Drawer";
 import MenuIcon from "@mui/icons-material/Menu";
 import ToggleColorMode from "./ToggleColorMode";
+import { useNavigate } from "react-router-dom";
 
 const logoStyle = {
   width: "140px",
@@ -43,6 +44,8 @@ function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
       setOpen(false);
     }
   };
+
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -150,8 +153,9 @@ function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
                 variant="text"
                 size="small"
                 component="a"
-                href="/material-ui/getting-started/templates/sign-in/"
+                // href="/material-ui/getting-started/templates/sign-in/"
                 target="_blank"
+                onClick={() => navigate("/signin")}
               >
                 Sign in
               </Button>
@@ -160,8 +164,9 @@ function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
                 variant="contained"
                 size="small"
                 component="a"
-                href="/material-ui/getting-started/templates/sign-up/"
+                // href="/material-ui/getting-started/templates/sign-up/"
                 target="_blank"
+                onClick={() => navigate("/signup")}
               >
                 Sign up
               </Button>
