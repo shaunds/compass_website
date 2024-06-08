@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, CardContent, Typography, Button } from "@mui/material";
-import MatchPopup from "./Mpopup";
-import BettingPopup from "./Bpopup";
+import MatchPopup from "./betting/Mpopup";
+import BettingPopup from "./betting/Bpopup";
 
 interface MatchProps {
   team1: string;

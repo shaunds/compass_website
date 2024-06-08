@@ -4,7 +4,8 @@ import MainLayout from "./MainLayout";
 import SignIn from "./components/auth/SignIn";
 import SignUp from "./components/auth/SignUp";
 import Matches from "./matches";
-import Checkout from "./components/checkout/Checkout";
+import BettingPage from "./BettingPage";
+import CompassTokensPage from "./components/compassTokens";
 
 const routes: RouteObject[] = [
   {
@@ -27,8 +28,12 @@ const routes: RouteObject[] = [
         element: <Matches />,
       },
       {
-        path: "/checkout",
-        element: <Checkout />,
+        path: "/bettingpage",
+        element: <BettingPage />,
+      },
+      {
+        path: "/compasstokens",
+        element: <CompassTokensPage />,
       },
     ],
   },

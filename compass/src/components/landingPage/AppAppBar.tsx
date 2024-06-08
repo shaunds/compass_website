@@ -10,6 +10,7 @@ import Typography from "@mui/material/Typography";
 import MenuItem from "@mui/material/MenuItem";
 import Drawer from "@mui/material/Drawer";
 import MenuIcon from "@mui/icons-material/Menu";
+import ToggleColorMode from "../ToggleColorMode";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { auth } from "../../firebase";
@@ -213,8 +214,7 @@ function AppAppBar() {
                   </MenuItem>
                   <Divider />
                   <MenuItem>
-                    <Button
-                      color="primary"
+                    <Button                       color="primary"
                       variant="contained"
                       component="a"
                       href="/material-ui/getting-started/templates/sign-up/"
@@ -242,11 +242,31 @@ function AppAppBar() {
           </Toolbar>
         </Container>
       </AppBar>
+
+      {/* Rectangular frame with button */}
+      <Box
+  sx={{
+    width: "100%",
+    backgroundColor: "#FFFFFF", // White background
+    padding: "16px", // Adjust padding as needed
+    textAlign: "center",
+    marginTop: "50px", // Move down by 1000px
+  }}
+>
+  <Button
+    color="primary"
+    variant="contained"
+    onClick={() => {
+      navigate("/compasstokens")
+    }}
+  >
+    Compass Tokens
+  </Button>
+</Box>
+
     </div>
   );
 }
 
 export default AppAppBar;
-function useAuth(): { logout: any } {
-  throw new Error("Function not implemented.");
-}
+

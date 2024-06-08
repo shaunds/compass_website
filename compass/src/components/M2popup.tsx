@@ -26,7 +26,6 @@ const Mpopup: React.FC<MatchPopupProps> = ({ open, onClose, team1, team2 }) => {
         </Typography>
         {/* Add more details */}
         <Button onClick={() => nav("/paymentpage")}>Buy Ticket</Button>
-        <Button onClick={() => nav("/bettingpage")}>Bet on a Team</Button>
       </DialogContent>
     </Dialog>
   );
