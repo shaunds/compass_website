@@ -12,6 +12,9 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import {getAuth, GoogleAuthProvider, signInWithPopup} from 'firebase/auth';
+import { useNavigate } from "react-router-dom";
+
 
 function Copyright(props: any) {
   return (
