@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Grid } from "@mui/material";
-import Team from "./components/Teams";
-import Match from "./components/match";
+import Team from "./components/betting/Teams";
+import Match from "./components/betting/match";
 
 const Matches: React.FC = () => {
   return (

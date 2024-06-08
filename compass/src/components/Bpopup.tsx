@@ -8,7 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 import { doc, updateDoc, getDoc } from "firebase/firestore";
-import { db } from "./firebase";
+import { db } from "../firebase";
 
 interface BettingPopupProps {
   open: boolean;
