@@ -5,7 +5,6 @@ import Matches from "./matches";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import { initializeApp } from "firebase/app";
-import AuthRoute from "./components/AuthRoute";
 import routes from "./Routes";
 
 function App() {

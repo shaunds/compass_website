@@ -13,44 +13,44 @@ const userTestimonials = [
   {
     avatar: <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />,
     name: "Remy Sharp",
-    occupation: "Senior Engineer",
+    occupation: "UI/UX expert",
     testimonial:
-      "I absolutely love how versatile this product is! Whether I'm tackling work projects or indulging in my favorite hobbies, it seamlessly adapts to my changing needs. Its intuitive design has truly enhanced my daily routine, making tasks more efficient and enjoyable.",
+      "Yalla Esports' new website is a game-changer! It's sleek, intuitive, and full of engaging content. I've never felt more connected to the community. Their updates have definitely elevated my gaming experience!",
   },
   {
     avatar: <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />,
     name: "Travis Howard",
-    occupation: "Lead Product Designer",
+    occupation: "Software Engineer",
     testimonial:
-      "One of the standout features of this product is the exceptional customer support. In my experience, the team behind this product has been quick to respond and incredibly helpful. It's reassuring to know that they stand firmly behind their product.",
+      "Since Yalla Esports revamped their site, my engagement has skyrocketed. The seamless navigation and interactive features make it a joy to visit daily. Kudos to the team for making such an impressive improvement!",
   },
   {
     avatar: <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />,
     name: "Cindy Baker",
-    occupation: "CTO",
+    occupation: "Twitch Streamer",
     testimonial:
-      "The level of simplicity and user-friendliness in this product has significantly simplified my life. I appreciate the creators for delivering a solution that not only meets but exceeds user expectations.",
+      "The website enhancements by Yalla Esports are phenomenal. The new layout is visually stunning and user-friendly. I find myself spending more time exploring content and participating in events. Great job!",
   },
   {
     avatar: <Avatar alt="Remy Sharp" src="/static/images/avatar/4.jpg" />,
     name: "Julia Stewart",
     occupation: "Senior Engineer",
     testimonial:
-      "I appreciate the attention to detail in the design of this product. The small touches make a big difference, and it's evident that the creators focused on delivering a premium experience.",
+      "Yalla Esports' website overhaul has vastly improved my user experience. The dynamic design and easy access to information keep me coming back. The increased engagement within the community is noticeable and appreciated.",
   },
   {
     avatar: <Avatar alt="Travis Howard" src="/static/images/avatar/5.jpg" />,
     name: "John Smith",
-    occupation: "Product Designer",
+    occupation: "Games Designer",
     testimonial:
-      "I've tried other similar products, but this one stands out for its innovative features. It's clear that the makers put a lot of thought into creating a solution that truly addresses user needs.",
+      "The upgraded Yalla Esports website is fantastic! It's packed with valuable content, and the interactive elements make it fun to use. My overall engagement with the platform has never been higher. Highly recommend checking it out!",
   },
   {
     avatar: <Avatar alt="Cindy Baker" src="/static/images/avatar/6.jpg" />,
     name: "Daniel Wolf",
-    occupation: "CDO",
+    occupation: "Professional Esports Gamer",
     testimonial:
-      "The quality of this product exceeded my expectations. It's durable, well-designed, and built to last. Definitely worth the investment!",
+      "Yalla Esports has truly outdone themselves with their website improvements. The site is now more engaging and easier to navigate. I've become more involved with the community and look forward to new updates. Excellent work!",
   },
 ];
 
@@ -104,8 +104,8 @@ export default function Testimonials() {
           Testimonials
         </Typography>
         <Typography variant="body1" color="text.secondary">
-          See what our customers love about our products. Discover how we excel
-          in efficiency, durability, and satisfaction. Join us for quality,
+          See what our users love about Yalla Esports. Discover how we excel in
+          efficiency, durability, and satisfaction. Join us for quality,
           innovation, and reliable support.
         </Typography>
       </Box>

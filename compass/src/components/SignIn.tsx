@@ -53,7 +53,7 @@ export default function SignIn() {
   const [rememberMe, setRememberMe] = useState(false);
   const [userSignedIn, setUserSignedIn] = useState(false);
 
-  //Function to create user document if not found in firestore
+  //   Function to create user document if not found in firestore
   const createUserDocument = async (userId: any) => {
     //check if user exists in firestore
     try {

@@ -62,6 +62,7 @@ export default function SignUp() {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
         setUserSignedIn(true);
+        navigate("/");
         console.log("User is signed in");
       } else {
         setUserSignedIn(false);

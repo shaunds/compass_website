@@ -9,39 +9,40 @@ import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
-import DevicesRoundedIcon from "@mui/icons-material/DevicesRounded";
-import EdgesensorHighRoundedIcon from "@mui/icons-material/EdgesensorHighRounded";
-import ViewQuiltRoundedIcon from "@mui/icons-material/ViewQuiltRounded";
+import CurrencyBitcoinRoundedIcon from "@mui/icons-material/CurrencyBitcoinRounded";
+import LiveTvRoundedIcon from "@mui/icons-material/LiveTvRounded";
+import VerifiedUserRoundedIcon from "@mui/icons-material/VerifiedUserRounded";
 
 const items = [
   {
-    icon: <ViewQuiltRoundedIcon />,
-    title: "Dashboard",
+    icon: <CurrencyBitcoinRoundedIcon />,
+    title: "Yalla Tokens",
     description:
-      "This item could provide a snapshot of the most important metrics or data points related to the product.",
+      "Introducing Yalla Tokens, our new cryptocurrency, empowering players with seamless transactions and exclusive rewards.",
     imageLight:
-      'url("/static/images/templates/templates-images/dash-light.png")',
-    imageDark: 'url("/static/images/templates/templates-images/dash-dark.png")',
+      'url("/static/images/templates/templates-images/tokens-light.png")',
+    imageDark:
+      'url("/static/images/templates/templates-images/tokens-dark.png")',
   },
   {
-    icon: <EdgesensorHighRoundedIcon />,
-    title: "Mobile integration",
+    icon: <LiveTvRoundedIcon />,
+    title: "Streaming Platform",
     description:
-      "This item could provide information about the mobile app version of the product.",
+      "Experience live streams of tournaments and events with our cutting-edge streaming platform, bringing the action to you.",
     imageLight:
-      'url("/static/images/templates/templates-images/mobile-light.png")',
+      'url("/static/images/templates/templates-images/streaming-light.png")',
     imageDark:
-      'url("/static/images/templates/templates-images/mobile-dark.png")',
+      'url("/static/images/templates/templates-images/streaming-dark.png")',
   },
   {
-    icon: <DevicesRoundedIcon />,
-    title: "Available on all platforms",
+    icon: <VerifiedUserRoundedIcon />,
+    title: "Secure Transactions",
     description:
-      "This item could let users know the product is available on all platforms, such as web, mobile, and desktop.",
+      "Our Web3 integration ensures secure and transparent transactions, protecting your assets and data.",
     imageLight:
-      'url("/static/images/templates/templates-images/devices-light.png")',
+      'url("/static/images/templates/templates-images/secure-light.png")',
     imageDark:
-      'url("/static/images/templates/templates-images/devices-dark.png")',
+      'url("/static/images/templates/templates-images/secure-dark.png")',
   },
 ];
 
@@ -60,16 +61,16 @@ export default function Features() {
         <Grid item xs={12} md={6}>
           <div>
             <Typography component="h2" variant="h4" color="text.primary">
-              Product features
+              Yalla Esports Features
             </Typography>
             <Typography
               variant="body1"
               color="text.secondary"
               sx={{ mb: { xs: 2, sm: 4 } }}
             >
-              Here you can provide a brief overview of the key features of the
-              product. For example, you could list the number of features, the
-              types of features, add-ons, or the benefits of the features.
+              Discover the innovative features of Yalla Esports' new Web3 gaming
+              ecosystem. From Yalla Tokens to our advanced streaming platform,
+              explore how we are enhancing your gaming experience.
             </Typography>
           </div>
           <Grid
