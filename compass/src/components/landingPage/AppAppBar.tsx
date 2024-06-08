@@ -135,6 +135,50 @@ function AppAppBar() {
                     Testimonials
                   </Typography>
                 </MenuItem>
+                {user && (
+                  <MenuItem>
+                    <Button
+                    color="primary"
+                    variant="text"
+                    size="small"
+                    component="a"
+                    target="_blank"
+                    onClick={() => navigate("/events")}
+                  >
+                   Events
+                 </Button>
+                </MenuItem>
+                )}
+                
+                {user && (
+                  <MenuItem>
+                    <Button
+                    color="primary"
+                    variant="text"
+                    size="small"
+                    component="a"
+                    target="_blank"
+                    onClick={() => navigate("/tickets")}
+                  >
+                   Tickets
+                 </Button>
+                </MenuItem>
+                )}
+                 {user && (
+                  <MenuItem>
+                    <Button
+                    color="primary"
+                    variant="text"
+                    size="small"
+                    component="a"
+                    target="_blank"
+                    onClick={() => navigate("/merchandise")}
+                  >
+                   Merchandise
+                 </Button>
+                </MenuItem>
+                )}
+
               </Box>
             </Box>
             {user ? (
@@ -164,6 +208,7 @@ function AppAppBar() {
                   alignItems: "center",
                 }}
               >
+                 
                 <Button
                   color="primary"
                   variant="text"
@@ -217,8 +262,20 @@ function AppAppBar() {
                     <Button
                       color="primary"
                       variant="contained"
+                      component="a"               
+                      onClick={() => {navigate("/event")}}
+                      target="_blank"
+                      sx={{ width: "100%" }}
+                    >
+                      Events
+                    </Button>
+                  </MenuItem>
+                  <MenuItem>
+                    <Button
+                      color="primary"
+                      variant="contained"
                       component="a"
-                      href="/material-ui/getting-started/templates/sign-up/"
+                      onClick={() => {navigate("/signup")}}
                       target="_blank"
                       sx={{ width: "100%" }}
                     >
@@ -230,7 +287,7 @@ function AppAppBar() {
                       color="primary"
                       variant="outlined"
                       component="a"
-                      href="/material-ui/getting-started/templates/sign-in/"
+                      onClick={() => {navigate("/signin")}}
                       target="_blank"
                       sx={{ width: "100%" }}
                     >
