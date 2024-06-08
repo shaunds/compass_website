@@ -48,11 +48,7 @@ function ToggleCustomTheme({
           },
         }}
       >
-        <ToggleButton value>
-          <AutoAwesomeRoundedIcon sx={{ fontSize: "20px", mr: 1 }} />
-          Custom theme
-        </ToggleButton>
-        <ToggleButton value={false}>Material Design 2</ToggleButton>
+      
       </ToggleButtonGroup>
     </Box>
   );

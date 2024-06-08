@@ -4,6 +4,7 @@ import MainLayout from "./MainLayout";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import Matches from "./matches";
+import Wallet from "./components/Wallet";  // Import the Wallet component
 
 const routes: RouteObject[] = [
     {
@@ -25,8 +26,12 @@ const routes: RouteObject[] = [
                 path: "/matches",
                 element: <Matches />
             },
+            {
+                path: "/wallet",  // Add the new route for Wallet
+                element: <Wallet />
+            },
         ]
     }
 ]
 
-export default routes
+export default routes;

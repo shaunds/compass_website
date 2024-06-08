@@ -5,12 +5,10 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
-import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
 import MenuItem from "@mui/material/MenuItem";
 import Drawer from "@mui/material/Drawer";
 import MenuIcon from "@mui/icons-material/Menu";
-import ToggleColorMode from "./ToggleColorMode";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { auth } from "./firebase";
@@ -29,23 +27,10 @@ interface AppAppBarProps {
 
 function AppAppBar() {
   const [open, setOpen] = React.useState(false);
+  const navigate = useNavigate();
 
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
-  };
-
-  const scrollToSection = (sectionId: string) => {
-    const sectionElement = document.getElementById(sectionId);
-    const offset = 128;
-    if (sectionElement) {
-      const targetScroll = sectionElement.offsetTop - offset;
-      sectionElement.scrollIntoView({ behavior: "smooth" });
-      window.scrollTo({
-        top: targetScroll,
-        behavior: "smooth",
-      });
-      setOpen(false);
-    }
   };
 
   const [user, setUser] = useState(false);
@@ -66,9 +51,7 @@ function AppAppBar() {
     } else {
       console.log("User is not signed in");
     }
-  }),
-    [];
-  const navigate = useNavigate();
+  }, []);
 
   return (
     <div>
@@ -118,26 +101,8 @@ function AppAppBar() {
                 style={logoStyle}
                 alt="logo of sitemark"
               />
-              <Box sx={{ display: { xs: "none", md: "flex" } }}>
-                <MenuItem
-                  onClick={() => scrollToSection("features")}
-                  sx={{ py: "6px", px: "12px" }}
-                >
-                  <Typography variant="body2" color="text.primary">
-                    Features
-                  </Typography>
-                </MenuItem>
-                <MenuItem
-                  onClick={() => scrollToSection("testimonials")}
-                  sx={{ py: "6px", px: "12px" }}
-                >
-                  <Typography variant="body2" color="text.primary">
-                    Testimonials
-                  </Typography>
-                </MenuItem>
-              </Box>
             </Box>
-            {user ? (
+            {user && (
               <Box
                 sx={{
                   display: { xs: "none", md: "flex" },
@@ -150,43 +115,12 @@ function AppAppBar() {
                   variant="contained"
                   size="small"
                   component="a"
-                  target="_blank"
-                  onClick={() => handleLogout()}
+                  onClick={handleLogout}
                 >
                   Sign Out
                 </Button>
               </Box>
-            ) : (
-              <Box
-                sx={{
-                  display: { xs: "none", md: "flex" },
-                  gap: 0.5,
-                  alignItems: "center",
-                }}
-              >
-                <Button
-                  color="primary"
-                  variant="text"
-                  size="small"
-                  component="a"
-                  target="_blank"
-                  onClick={() => navigate("/signin")}
-                >
-                  Sign in
-                </Button>
-                <Button
-                  color="primary"
-                  variant="contained"
-                  size="small"
-                  component="a"
-                  target="_blank"
-                  onClick={() => navigate("/signup")}
-                >
-                  Sign up
-                </Button>
-              </Box>
             )}
-
             <Box sx={{ display: { sm: "", md: "none" } }}>
               <Button
                 variant="text"
@@ -206,13 +140,6 @@ function AppAppBar() {
                     flexGrow: 1,
                   }}
                 >
-                  <MenuItem onClick={() => scrollToSection("features")}>
-                    Features
-                  </MenuItem>
-                  <MenuItem onClick={() => scrollToSection("testimonials")}>
-                    Testimonials
-                  </MenuItem>
-                  <Divider />
                   <MenuItem>
                     <Button
                       color="primary"
@@ -243,11 +170,25 @@ function AppAppBar() {
           </Toolbar>
         </Container>
       </AppBar>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "calc(100vh - 64px)", // Adjust height to account for AppBar height
+        }}
+      >
+        <Button
+          color="primary"
+          variant="contained"
+          size="large"
+          onClick={() => navigate("/wallet")}
+        >
+          Wallet
+        </Button>
+      </Box>
     </div>
   );
 }
 
 export default AppAppBar;
-function useAuth(): { logout: any } {
-  throw new Error("Function not implemented.");
-}
