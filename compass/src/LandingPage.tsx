@@ -19,7 +19,7 @@ import Footer from "./components/Footer.tsx";
 import getLPTheme from "./getLPTheme.tsx";
 
 interface ToggleCustomThemeProps {
-  showCustomTheme: Boolean;
+  showCustomTheme: boolean;
   toggleCustomTheme: () => void;
 }
 
