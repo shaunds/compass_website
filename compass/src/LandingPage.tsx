@@ -7,12 +7,12 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import AutoAwesomeRoundedIcon from "@mui/icons-material/AutoAwesomeRounded";
-import AppAppBar from "./components/AppAppBar.tsx";
-import Hero from "./components/Hero.tsx";
-import LogoCollection from "./components/LogoCollection.tsx";
-import Features from "./components/Features.tsx";
-import Testimonials from "./components/Testimonials.tsx";
-import Footer from "./components/Footer.tsx";
+import AppAppBar from "./components/landingPage/AppAppBar.tsx";
+import Hero from "./components/landingPage/Hero.tsx";
+import LogoCollection from "./components/landingPage/LogoCollection.tsx";
+import Features from "./components/landingPage/Features.tsx";
+import Testimonials from "./components/landingPage/Testimonials.tsx";
+import Footer from "./components/landingPage/Footer.tsx";
 import getLPTheme from "./getLPTheme.tsx";
 
 interface ToggleCustomThemeProps {

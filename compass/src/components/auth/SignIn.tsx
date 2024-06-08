@@ -21,7 +21,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { doc, getDoc } from "firebase/firestore";
-import { auth, db } from "./firebase";
+import { auth, db } from "../../firebase";
 import { useEffect } from "react";
 import { FormHelperText } from "@mui/material";
 

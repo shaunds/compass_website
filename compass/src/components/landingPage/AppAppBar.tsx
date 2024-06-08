@@ -10,10 +10,10 @@ import Typography from "@mui/material/Typography";
 import MenuItem from "@mui/material/MenuItem";
 import Drawer from "@mui/material/Drawer";
 import MenuIcon from "@mui/icons-material/Menu";
-import ToggleColorMode from "./ToggleColorMode";
+import ToggleColorMode from "../ToggleColorMode";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { auth } from "./firebase";
+import { auth } from "../../firebase";
 import { signOut } from "firebase/auth";
 
 const logoStyle = {
