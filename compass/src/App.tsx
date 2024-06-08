@@ -16,8 +16,10 @@ function App() {
       <Route index element={<LandingPage />} />
       <Route path="/signIn" element={<SignIn />} />
       <Route path="/matches" element={<Matches />} />
-
+ 
       <Route path="/signUp" element={<SignUp />} />
+
+
     </Routes>
   );
 }
