@@ -134,6 +134,7 @@ export default function SignUp() {
         lastName: lastName,
         userEmail: email,
         profilePic: "",
+        tokens: 100,
       };
 
       await setDoc(doc(db, "userDetails", userId), userDetails);

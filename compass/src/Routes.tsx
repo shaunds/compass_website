@@ -4,6 +4,7 @@ import MainLayout from "./MainLayout";
 import SignIn from "./components/auth/SignIn";
 import SignUp from "./components/auth/SignUp";
 import Matches from "./matches";
+import Checkout from "./components/checkout/Checkout";
 
 const routes: RouteObject[] = [
   {
@@ -24,6 +25,10 @@ const routes: RouteObject[] = [
       {
         path: "/matches",
         element: <Matches />,
+      },
+      {
+        path: "/checkout",
+        element: <Checkout />,
       },
     ],
   },
