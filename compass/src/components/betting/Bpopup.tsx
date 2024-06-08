@@ -27,7 +27,7 @@ const BettingPopup: React.FC<BettingPopupProps> = ({
   team2,
   userId,
 }) => {
-  const [amount, setAmount] = useState<number>(0);
+  const [amount, setAmount] = useState();
   const [selectedTeam, setSelectedTeam] = useState<string | null>(null);
   const [tokens, setTokens] = useState<number>(0);
   const [exceedsWallet, setExceedsWallet] = useState<boolean>(false);
@@ -42,7 +42,8 @@ const BettingPopup: React.FC<BettingPopupProps> = ({
       // ...
       onClose();
     } else {
-      setExceedsWallet(true);
+      setExceedsWallet(false);
+      onClose();
     }
   };
 
@@ -114,7 +115,7 @@ const BettingPopup: React.FC<BettingPopupProps> = ({
             variant="contained"
             color="secondary"
             onClick={handleBet}
-            disabled={!selectedTeam || amount <= 0 || amount > tokens}
+            // disabled={!selectedTeam || amount <= 0 || amount > tokens}
           >
             Place Bet
           </Button>

@@ -9,6 +9,8 @@ interface MatchProps {
   matchId: string;
   userId: string;
   showBetButton?: boolean;
+  odds1: number;
+  odds2: number
 }
 
 const Match: React.FC<MatchProps> = ({
@@ -17,6 +19,8 @@ const Match: React.FC<MatchProps> = ({
   matchId,
   userId,
   showBetButton = false,
+  odds1,
+  odds2
 }) => {
   const [openInfo, setOpenInfo] = React.useState(false);
   const [openBet, setOpenBet] = React.useState(false);
@@ -43,6 +47,8 @@ const Match: React.FC<MatchProps> = ({
         <Typography variant="h6">
           Match: {team1} vs {team2}
         </Typography>
+        <Typography>Odds: {odds1} : {odds2}</Typography>
+        
         <Button onClick={handleInfoOpen}>More Info</Button>
         {showBetButton && (
           <>

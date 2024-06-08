@@ -20,11 +20,35 @@ const BettingPage: React.FC = () => {
         </Grid>
         <Grid item xs={12}>
           <Match
-            team1="Team A"
-            team2="Team B"
+            team1="FNATIC"
+            team2="ASTRALIS"
             matchId="match1"
             userId={userId}
             showBetButton={true}
+            odds1={1.9}
+            odds2={2.1}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <Match
+            team1="FURIA"
+            team2="NIP"
+            matchId="match2"
+            userId={userId}
+            showBetButton={true}
+            odds1={1.7}
+            odds2={2.3}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <Match
+            team1="BETBOOM"
+            team2="THE MONGOLZ"
+            matchId="match3"
+            userId={userId}
+            showBetButton={true}
+            odds1={1.6}
+            odds2={1.1}
           />
         </Grid>
         {/* Add more matches as needed */}

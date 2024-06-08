@@ -244,15 +244,17 @@ function AppAppBar() {
       </AppBar>
 
       {/* Rectangular frame with button */}
+      {user && 
       <Box
   sx={{
     width: "100%",
-    backgroundColor: "#FFFFFF", // White background
+    backgroundColor: "#000000", // White background
     padding: "16px", // Adjust padding as needed
     textAlign: "center",
     marginTop: "50px", // Move down by 1000px
   }}
 >
+  
   <Button
     color="primary"
     variant="contained"
@@ -261,8 +263,8 @@ function AppAppBar() {
     }}
   >
     Compass Tokens
-  </Button>
-</Box>
+  </Button> 
+</Box> }
 
     </div>
   );
